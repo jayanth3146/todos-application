@@ -22,9 +22,8 @@ class TodoItem extends Component {
   }
 
   render() {
-    const {todoDetails, deleteTodo, toggleCompelete} = this.props
+    const {todoDetails, deleteTodo, toggleComplete} = this.props
     const {editing, updatedTitle} = this.state
-
     return (
       <li
         className={todoDetails.completed ? 'todo-item completed' : 'todo-item'}
@@ -45,14 +44,18 @@ class TodoItem extends Component {
             <input
               type="checkbox"
               checked={todoDetails.completed}
-              onChange={() => toggleCompelete(todoDetails.id)}
+              onChange={() => toggleComplete(todoDetails.id)}
             />
             <p className="title">{todoDetails.title}</p>
-            <button onClick={this.handleEdit} type="button">
+            <button
+              onClick={this.handleEdit}
+              type="button"
+              className="edit-btn"
+            >
               Edit
             </button>
             <button onClick={() => deleteTodo(todoDetails.id)} type="button">
-              Delete{' '}
+              Delete
             </button>
           </>
         )}
